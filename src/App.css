@@ -4,14 +4,29 @@
     box-sizing: border-box;
     font-family: 'Quicksand', Arial, Helvetica, sans-serif;
 }
-body{
-    padding:0;
-    margin:0;
+
+@font-face {
+    font-family: "argentum-sans-black";
+    src: local("argentumSansBlack"),
+    url("./fonts/argentum-sans.black.ttf") format("truetype");
 }
-.App{
+
+@font-face {
+    font-family: "argentum-sans-semibold";
+    src: local("argentumSansSemiBold"),
+    url("./fonts/argentum-sans.semibold.ttf") format("truetype");
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.App {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     background-color: black;
+    background-image: url("/public/abstract-blur-furniture-decoration-warehouse-store.jpg");
     color: white;
 }

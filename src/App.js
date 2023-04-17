@@ -1,10 +1,13 @@
 import './App.css';
+import './fonts/argentum-sans.black.ttf';
+import './fonts/argentum-sans.semibold.ttf';
 import api from './api/axiosConfig';
 import {useState, useEffect} from 'react';
 import Layout from './components/Layout';
 import {Routes, Route} from 'react-router-dom';
 import Home from './components/home/Home';
-import Header from './components/header/Header';
+import NavBar from './components/navbar/NavBar';
+import ComponentsTable from './components/tables/data_components/ComponentsTable';
 
 function App() {
     const [orders, setOrders] = useState();
@@ -58,13 +61,13 @@ function App() {
 
     return (
         <div className="App">
-            <Header/>
+            <NavBar/>
             <Routes>
                 <Route path="/" element={<Layout/>}>
                     <Route path="/" element={<Home/>}></Route>
                     <Route path="/orders" element={orders}></Route>
                     <Route path="/products" element={products}></Route>
-                    <Route path="/components" element={components}></Route>
+                    <Route path="/components" element={<ComponentsTable components={components}/>}></Route>
                     <Route path="/storage" element={storageUnits}></Route>
                 </Route>
             </Routes>
