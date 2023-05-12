@@ -7,7 +7,7 @@ import Layout from './components/Layout';
 import {Routes, Route} from 'react-router-dom';
 import Home from './components/home/Home';
 import NavBar from './components/navbar/NavBar';
-import ComponentsTable from './components/tables/data_components/ComponentsTable';
+import ComponentsTable from './components/tables/components_table/ComponentsTable';
 
 function App() {
     const [orders, setOrders] = useState();

@@ -5,7 +5,7 @@ const ComponentsTable = ({components}) => {
             <table className="table table-striped table-dark table-hover m-2">
                 <thead>
                 <tr className="table-secondary">
-                    <th>ID</th>
+                    <th>id</th>
                     <th>name</th>
                     <th>type</th>
                     <th>primary value</th>
@@ -13,12 +13,10 @@ const ComponentsTable = ({components}) => {
                     <th>secondary value</th>
                     <th>secondary unit</th>
                     <th>tolerance</th>
-                    <th>length (mm)</th>
-                    <th>width (mm)</th>
-                    <th>height (mm)</th>
-                    <th>weight (g)</th>
-                    <th>manufacturer ID</th>
-                    <th>trader ID</th>
+                    <th>dimensions (LLxWWxHH) [cm]</th>
+                    <th>weight [g]</th>
+                    <th>manufacturer id</th>
+                    <th>trader id</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -34,9 +32,7 @@ const ComponentsTable = ({components}) => {
                                     <td>{component.secondaryValue}</td>
                                     <td>{component.secondaryUnit}</td>
                                     <td>{component.tolerance}</td>
-                                    <td>{component.packageDimensions.length}</td>
-                                    <td>{component.packageDimensions.width}</td>
-                                    <td>{component.packageDimensions.height}</td>
+                                    <td>{component.packageDimensions}</td>
                                     <td>{component.weightInGrammes}</td>
                                     <td>{component.manufacturerId}</td>
                                     <td>{component.traderComponentId}</td>
