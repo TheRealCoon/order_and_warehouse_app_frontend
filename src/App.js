@@ -8,6 +8,7 @@ import {Routes, Route} from 'react-router-dom';
 import Home from './components/home/Home';
 import NavBar from './components/navbar/NavBar';
 import ComponentsTable from './components/tables/components_table/ComponentsTable';
+import OrdersTable from "./components/tables/orders_table/OrdersTable";
 
 function App() {
     const [orders, setOrders] = useState();
@@ -65,7 +66,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Layout/>}>
                     <Route path="/" element={<Home/>}></Route>
-                    <Route path="/orders" element={orders}></Route>
+                    <Route path="/orders" element={<OrdersTable orders={orders}/>}></Route>
                     <Route path="/products" element={products}></Route>
                     <Route path="/components" element={<ComponentsTable components={components}/>}></Route>
                     <Route path="/storage" element={storageUnits}></Route>
