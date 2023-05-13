@@ -8,7 +8,9 @@ import {Routes, Route} from 'react-router-dom';
 import Home from './components/home/Home';
 import NavBar from './components/navbar/NavBar';
 import ComponentsTable from './components/tables/components_table/ComponentsTable';
-import OrdersTable from "./components/tables/orders_table/OrdersTable";
+import OrdersTable from './components/tables/orders_table/OrdersTable';
+import ProductsTable from './components/tables/products_table/ProductsTable';
+import StorageUnitsTable from "./components/tables/storage_unit_table/StorageUnitsTable";
 
 function App() {
     const [orders, setOrders] = useState();
@@ -34,7 +36,7 @@ function App() {
         }
     }
 
-    const getComponents = async  () => {
+    const getComponents = async () => {
         try {
             const response = await api.get("/components");
             setComponents(response.data);
@@ -43,7 +45,7 @@ function App() {
         }
     }
 
-    const getStorageUnits = async () =>{
+    const getStorageUnits = async () => {
         try {
             const response = await api.get("/storage");
             setStorageUnits(response.data);
@@ -67,12 +69,12 @@ function App() {
                 <Route path="/" element={<Layout/>}>
                     <Route path="/" element={<Home/>}></Route>
                     <Route path="/orders" element={<OrdersTable orders={orders}/>}></Route>
-                    <Route path="/products" element={products}></Route>
+                    <Route path="/products" element={<ProductsTable products={products}/>}></Route>
                     <Route path="/components" element={<ComponentsTable components={components}/>}></Route>
-                    <Route path="/storage" element={storageUnits}></Route>
+                    <Route path="/storage" element={<StorageUnitsTable storageUnits={storageUnits}/>}></Route>
                 </Route>
             </Routes>
-            <div className="orders" ></div>
+            <div className="orders"></div>
         </div>
     );
 }
