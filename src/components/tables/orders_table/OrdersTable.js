@@ -1,6 +1,21 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import api from "../../../api/axiosConfig";
 
-const OrdersTable = ({orders}) => {
+const OrdersTable = () => {
+    const [orders, setOrders] = useState([]);
+    const getOrders = async () => {
+        try {
+            const response = await api.get("/orders");
+            setOrders(response.data);
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    useEffect(() => {
+        getOrders();
+    }, [])
+
     return (<div className="container">
             <table className="table table-striped table-dark table-hover m-2">
                 <thead>
@@ -19,7 +34,7 @@ const OrdersTable = ({orders}) => {
                 </thead>
                 <tbody>
                 {
-                    orders.map((order) => {
+                    orders.map(order => {
                             return (
                                 <tr key={order.id}>
                                     <td>{order.id}</td>
@@ -41,6 +56,7 @@ const OrdersTable = ({orders}) => {
             </table>
         </div>
     )
+
 }
 
 export default OrdersTable;

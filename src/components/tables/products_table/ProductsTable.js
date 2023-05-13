@@ -1,6 +1,23 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import api from "../../../api/axiosConfig";
 
-const ProductsTable = ({products}) => {
+const ProductsTable = () => {
+
+    const [products, setProducts] = useState([]);
+
+    const getProducts = async () => {
+        try {
+            const response = await api.get("/products");
+            setProducts(response.data);
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    useEffect(() => {
+        getProducts();
+    }, [])
+
     return (<div className="container">
             <table className="table table-striped table-dark table-hover m-2">
                 <thead>

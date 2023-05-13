@@ -1,6 +1,22 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import api from "../../../api/axiosConfig";
 
-const StorageUnitsTable = ({storageUnits}) => {
+const StorageUnitsTable = () => {
+    const [storageUnits, setStorageUnits] = useState([]);
+
+    const getStorageUnits = async () => {
+        try {
+            const response = await api.get("/storage");
+            setStorageUnits(response.data);
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    useEffect(() => {
+        getStorageUnits();
+    }, [])
+
     return (<div className="container">
             <table className="table table-striped table-dark table-hover m-2">
                 <thead>

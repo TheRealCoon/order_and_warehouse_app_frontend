@@ -1,8 +1,6 @@
 import './App.css';
 import './fonts/argentum-sans.black.ttf';
 import './fonts/argentum-sans.semibold.ttf';
-import api from './api/axiosConfig';
-import {useState, useEffect} from 'react';
 import Layout from './components/Layout';
 import {Routes, Route} from 'react-router-dom';
 import Home from './components/home/Home';
@@ -13,54 +11,6 @@ import ProductsTable from './components/tables/products_table/ProductsTable';
 import StorageUnitsTable from "./components/tables/storage_unit_table/StorageUnitsTable";
 
 function App() {
-    const [orders, setOrders] = useState();
-    const [products, setProducts] = useState();
-    const [components, setComponents] = useState();
-    const [storageUnits, setStorageUnits] = useState();
-
-    const getOrders = async () => {
-        try {
-            const response = await api.get("/orders");
-            setOrders(response.data);
-        } catch (err) {
-            console.log(err);
-        }
-    }
-
-    const getProducts = async () => {
-        try {
-            const response = await api.get("/products");
-            setProducts(response.data);
-        } catch (err) {
-            console.log(err);
-        }
-    }
-
-    const getComponents = async () => {
-        try {
-            const response = await api.get("/components");
-            setComponents(response.data);
-        } catch (err) {
-            console.log(err);
-        }
-    }
-
-    const getStorageUnits = async () => {
-        try {
-            const response = await api.get("/storage");
-            setStorageUnits(response.data);
-        } catch (err) {
-            console.log(err);
-        }
-    }
-
-
-    useEffect(() => {
-        getOrders();
-        getProducts();
-        getComponents();
-        getStorageUnits();
-    }, [])
 
     return (
         <div className="App">
@@ -68,13 +18,12 @@ function App() {
             <Routes>
                 <Route path="/" element={<Layout/>}>
                     <Route path="/" element={<Home/>}></Route>
-                    <Route path="/orders" element={<OrdersTable orders={orders}/>}></Route>
-                    <Route path="/products" element={<ProductsTable products={products}/>}></Route>
-                    <Route path="/components" element={<ComponentsTable components={components}/>}></Route>
-                    <Route path="/storage" element={<StorageUnitsTable storageUnits={storageUnits}/>}></Route>
+                    <Route path="/orders" element={<OrdersTable/>}></Route>
+                    <Route path="/products" element={<ProductsTable/>}></Route>
+                    <Route path="/components" element={<ComponentsTable/>}></Route>
+                    <Route path="/storage" element={<StorageUnitsTable/>}></Route>
                 </Route>
             </Routes>
-            <div className="orders"></div>
         </div>
     );
 }
