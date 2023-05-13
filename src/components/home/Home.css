@@ -1,13 +1,13 @@
-.content-box {
-    min-height: 500px;
+.spacer {
+    min-height: 200px;
 }
 
 .display-1 {
-    color: #a64200;
+    color: #cc5500;
     font-family: "argentum-sans-black", Arial, Helvetica, sans-serif;
 }
 
 .display-3 {
-    color: #a64200;
+    color: #cc5500;
     font-family: "argentum-sans-semibold", Arial, Helvetica, sans-serif;
 }

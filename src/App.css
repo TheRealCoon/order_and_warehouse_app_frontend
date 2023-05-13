@@ -28,5 +28,7 @@ body {
     min-height: 100vh;
     background-color: black;
     background-image: url("/public/abstract-blur-furniture-decoration-warehouse-store.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
     color: white;
 }

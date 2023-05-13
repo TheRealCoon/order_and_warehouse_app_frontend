@@ -16,7 +16,7 @@ const OrdersTable = () => {
         getOrders();
     }, [])
 
-    return (<div className="container">
+    return (<div className="container table-responsive-xxl">
             <table className="table table-striped table-dark table-hover m-2">
                 <thead>
                 <tr className="table-secondary">
