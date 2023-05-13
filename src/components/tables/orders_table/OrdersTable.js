@@ -5,7 +5,7 @@ const OrdersTable = ({orders}) => {
             <table className="table table-striped table-dark table-hover m-2">
                 <thead>
                 <tr className="table-secondary">
-                    <th>order id</th>
+                    <th>id</th>
                     <th>product id</th>
                     <th>quantity</th>
                     <th>status</th>
